@@ -1,41 +1,33 @@
-mod readfile;
+// Replacement code for the custom Web Server
+use std::str::FromStr;
+use warp::{filters::BoxedFilter, http::Uri, path::FullPath, redirect, Filter, Reply};
 
-use readfile::*;
-use colored::Colorize;
-use std::{
-    fs,
-    io::{prelude::*, BufReader},
-    net::{TcpListener, TcpStream},
-};
 
-pub fn serve(filename: &str, port: &str) {
-    println!("{} {}", "WARNING:".yellow().bold(), "The serve function of htmanager is still in heavy development".bold());
-    println!("local (single threaded) dev server hosted at port {} (^C to force shutdown dev server)", port.cyan().italic());
 
-    let listener = TcpListener::bind("localhost:".to_owned() + port).unwrap(); 
-
-    for stream in listener.incoming() {
-        let stream = stream.unwrap();
-        handle_connection(stream, filename);
-    }
+fn main() {
+serve(8080);
 }
 
-fn handle_connection(mut stream: TcpStream, path: &str) {
-    let buf_reader = BufReader::new(&mut stream);
-    let request_line = buf_reader.lines().next().unwrap().unwrap();
-    
-        if request_line == "GET / HTTP/1.1" {
-        let status_line = "HTTP/1.1 200 OK";
-  
-        let file = Filename::from_path(path);
-        let contents = fs::read_to_string(path).unwrap();
-        let length = contents.len();
-		
-	let response = 
-	   format!(
-	   "{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}"
-	   );
+#[tokio::main]
+async fn serve(port: u16) {
+    let current_dir = std::env::current_dir().expect("failed to read current directory");
 
-        stream.write_all(response.as_bytes()).unwrap();
+    let routes = root_redirect().or(warp::fs::dir(current_dir));
+
+    warp::serve(routes).run(([127, 0, 0, 1], port)).await;
 }
-}
+
+fn root_redirect() -> BoxedFilter<(impl Reply,)> {
+    warp::path::full()
+        .and_then(move |path: FullPath| async move {
+            let path = path.as_str();
+
+            if path.ends_with("/") || path.contains(".") {
+                return Err(warp::reject());
+            }
+
+            Ok(redirect::redirect(
+                Uri::from_str(&[path, "/"].concat()).unwrap(),
+            ))
+        })
+        .boxed()
