@@ -1,0 +1,23 @@
+[package]
+name = "htmanager"
+version = "0.1.0"
+edition = "2021"
+description = "htmanager is a high end website project manager written in Rust and is 100% open source forever."
+authors = ["Matteo Rosato (MRRCode979 on github) <matteorosato979@gmail.com>"]
+license = "GPLv3+"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+strip = "debuginfo"
+opt-level = 3
+
+[[bin]]
+name = "htmanager"
+
+[dependencies]
+colored = "2.0.0"
+grass = "0.11.2"
+clap = { version = "3.2.20", features = ["derive"] }
+warp = "0.3.3"
+tokio = { version = "1", features = ["full"] }
