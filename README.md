@@ -12,8 +12,7 @@ Compile scss to css!
 Create html projects!
 
 #### Note:
-if you use external sources from your directory (Like a script tag linking an external javascript file)
-it won't work because htmanager does not serve the whole directory this should be fixed soon though.
+The external file problem has been fixed.
 
 ## TODO:
 blank for now
