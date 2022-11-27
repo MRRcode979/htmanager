@@ -32,11 +32,6 @@ create_project(matches.value_of("directory_name").unwrap());
 }
 
 if let Some(ref matches) = matches.subcommand_matches("serve") {
-if matches.value_of("source") == Some("") {
-println!("{} {}", "Error:".red().bold(), "No html source file specified use the -s flag then the filename".cyan());
-std::process::exit(0);
-} else {
-serve(matches.value_of("source").unwrap(), matches.value_of("port").unwrap());
-}
+serve(matches.value_of("port").expect("Unable to parse argument").parse().unwrap());
 }
 }

@@ -2,7 +2,7 @@
 
 htmanager is a high end website project manager written in Rust and is 100% open source forever.
 
-**Please feel free to contribute!**
+**I will be accepting contributions.**
 
 ## What can htmanager do?
 

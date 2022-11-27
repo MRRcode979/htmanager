@@ -16,15 +16,8 @@ redistribute it under certain conditions
         .author(env!("CARGO_PKG_AUTHORS"))
         .subcommand(
             App::new("serve")
-                .about("Serve project for local development [WARNING: The serve function is in beta!]")
-                .arg(
-                    Arg::with_name("source")
-                        .help("The html source manager")
-                        .short('s')
-                        .long("source")
-                        .takes_value(true)
-                        .default_value("")    
-		)
+                .about("Serve project for local development on 127.0.0.1 and localhost 
+		[WARNING: The serve function is in beta!]")
 		.arg(
                     Arg::with_name("port")
                         .help("the port to run the dev server on")

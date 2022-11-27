@@ -1,20 +1,18 @@
 // Replacement code for the custom Web Server
 use std::str::FromStr;
 use warp::{filters::BoxedFilter, http::Uri, path::FullPath, redirect, Filter, Reply};
-
-
-
-fn main() {
-serve(8080);
-}
+use colored::Colorize;
 
 #[tokio::main]
-async fn serve(port: u16) {
+pub async fn serve(port: u16) {
     let current_dir = std::env::current_dir().expect("failed to read current directory");
 
     let routes = root_redirect().or(warp::fs::dir(current_dir));
 
-    warp::serve(routes).run(([127, 0, 0, 1], port)).await;
+    println!("{} {}", "WARNING:".yellow().bold(), "The serve function of htmanager is still in heavy development".bold());
+    println!("local dev server hosted at port {} (^C to force shutdown dev server)", port.to_string().cyan().italic());
+
+    warp::serve(routes).run(([0, 0, 0, 0], port)).await;
 }
 
 fn root_redirect() -> BoxedFilter<(impl Reply,)> {
@@ -31,3 +29,4 @@ fn root_redirect() -> BoxedFilter<(impl Reply,)> {
             ))
         })
         .boxed()
+}
