@@ -17,7 +17,6 @@ it won't work because htmanager does not serve the whole directory this should b
 
 ## TODO:
 Add directory listing to the serve function.
-Add multithreading to the serve function.
 Makefile / installation script?
 
 # Install 
