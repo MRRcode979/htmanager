@@ -16,9 +16,7 @@ if you use external sources from your directory (Like a script tag linking an ex
 it won't work because htmanager does not serve the whole directory this should be fixed soon though.
 
 ## TODO:
-Add directory listing to the serve function.
-Add multithreading to the serve function.
-Makefile / installation script?
+blank for now
 
 # Install 
 first clone this repository or download & extract the zip.
