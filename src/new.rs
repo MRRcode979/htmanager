@@ -6,6 +6,7 @@ const DEFAULT_HTML: &str = "
 <!DOCTYPE html>
 <html>
     <head>
+	<link rel='stylesheet' href='styles.css'>
         <title>My Page</title>
     </head>
     <body>
@@ -14,6 +15,7 @@ const DEFAULT_HTML: &str = "
             <h2 id='article-head' class='header'>Hello World</h2>
             <p>This is a simple HTML demo made by htmanager edit this html to make a website!</p>
         </article>
+      <script src='./main.js' type='text/javascript'></script>
     </body>
 </html>";
 

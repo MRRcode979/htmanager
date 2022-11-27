@@ -16,20 +16,25 @@ if you use external sources from your directory (Like a script tag linking an ex
 it won't work because htmanager does not serve the whole directory this should be fixed soon though.
 
 ## TODO:
-Add directory listing to the serve function.
-Add multithreading to the serve function.
-Makefile / installation script?
+blank for now
 
 # Install 
-first clone this repository
+first clone this repository or download & extract the zip.
 
-next go into the project directory
+git clone https://github.com/MRRcode979/htmanager.git
 
-then run: cargo build --relase
+Next go into the htmanager directory and installit with the following command:
 
-finally run the executable and test if it's working by typing:
+make install
 
-./target/release/htmanager --help
+htmanager should now be installed.
+
+# Uninstall
+Go into the htmanager directory and type in the following command:
+
+make uninstall
+
+htmanager should now be uninstalled.
 
 
 That is it for now! Feel free to contribute.
