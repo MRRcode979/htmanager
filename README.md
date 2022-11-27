@@ -2,7 +2,7 @@
 
 htmanager is a high end website project manager written in Rust and is 100% open source forever.
 
-**Please feel free to contribute!**
+**I will be accepting contributions.**
 
 ## What can htmanager do?
 
@@ -17,6 +17,7 @@ it won't work because htmanager does not serve the whole directory this should b
 
 ## TODO:
 Add directory listing to the serve function.
+Add multithreading to the serve function.
 Makefile / installation script?
 
 # Install 
