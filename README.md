@@ -22,7 +22,7 @@ first clone this repository or download & extract the zip.
 
 git clone https://github.com/MRRcode979/htmanager.git
 
-Next go into the htmanager directory and installit with the following command:
+Next go into the htmanager directory and install it with the following command:
 
 make install
 
