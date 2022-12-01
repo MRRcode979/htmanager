@@ -15,7 +15,7 @@ Create html projects!
 The external file problem has been fixed.
 
 ## TODO:
-blank for now
+--host flag for LAN serving on 192.168.1.13 
 
 # Install 
 first clone this repository or download & extract the zip.
