@@ -15,7 +15,9 @@ Create html projects!
 The external file problem has been fixed.
 
 ## TODO:
---host flag for LAN serving on 192.168.1.13 
+--host flag for LAN serving on 192.168.1.13
+Structopt argument parsing with clap v4
+logging for serving
 
 # Install 
 first clone this repository or download & extract the zip.
