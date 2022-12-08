@@ -1,7 +1,7 @@
 use clap::{App, Arg};
 
 pub fn build<'a, 'b>() -> App<'a> {
- App::new("")
+    App::new("")
         // package metadata from Cargo
         .name(env!("CARGO_PKG_NAME"))
         .about("htmanager is a high end website project manager written in Rust and is 100% open source forever. Feel free to contribute! 
@@ -25,7 +25,13 @@ redistribute it under certain conditions
                         .long("port")
                         .takes_value(true)
                         .default_value("8080")
-                ))
+                )
+		.arg(
+    		    Arg::with_name("host")
+        	        .long("host")
+        		.takes_value(false)
+        		.help("Hosts on LAN at 192.168.1.13:[PORT]")
+		))
 		.subcommand(
 		App::new("new")
                 .about("Create new project")

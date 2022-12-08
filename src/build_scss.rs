@@ -1,9 +1,8 @@
+use colored::Colorize;
 use std::fs;
 use std::io::Write;
-use colored::Colorize;
 
-pub fn build_scss(p: &str, o: &str) -> Result<(), Box<grass::Error>>
-{
+pub fn build_scss(p: &str, o: &str) -> Result<(), Box<grass::Error>> {
     let scss = grass::from_path(p, &grass::Options::default())?;
     let mut file = fs::File::create(o)?;
 
