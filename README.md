@@ -19,7 +19,7 @@ The external file problem has been fixed.
 ## TODO:
 * Structopt argument parsing with clap v4
 
-__NOTICE: Big updates coming soon!__
+__NOTICE: Big updates are currently on hold as well as the whole project.__
 
 # Install 
 first clone this repository or download & extract the zip.
