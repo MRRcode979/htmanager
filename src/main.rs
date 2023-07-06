@@ -13,7 +13,7 @@ use clap::{App, Arg};
 use colored::Colorize;
 
 fn main() {
-    let mut adrr: &[u8] = todo!();
+    let mut adrr: Vec<u8>;
     let matches = cli::build().get_matches();
     if let Some(ref matches) = matches.subcommand_matches("build-scss") {
         if matches.value_of("source") == Some("") {
@@ -45,11 +45,11 @@ fn main() {
 
     if let Some(ref matches) = matches.subcommand_matches("serve") {
     if matches.is_present("host") {
-	//adrr = vec![192, 168, 1, 13]; 
+	adrr = vec![192, 168, 1, 13]; 
 	serve(&adrr, matches.value_of("port").expect("Unable to parse argument.").parse().unwrap());
     }
 	} else if let Some(ref matches) = matches.subcommand_matches("serve") {
-	//adrr = vec![0, 0, 0, 0];
+	adrr = vec![0, 0, 0, 0];
 	println!("{:?}", adrr);
 	serve(&adrr, matches.value_of("port").expect("Unable to parse argument.").parse().unwrap());
     }
