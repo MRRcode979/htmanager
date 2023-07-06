@@ -5,7 +5,7 @@ use warp::http::HeaderMap;
 use warp::{filters::BoxedFilter, http::Uri, path::FullPath, redirect, Filter, Reply};
 
 #[tokio::main]
-pub async fn serve(addr: &[u8], port: u16) {
+pub async fn serve(addr: Vec<u8>, port: u16) {
     let current_dir = std::env::current_dir().expect("failed to read current directory");
 
     let routes = root_redirect()
