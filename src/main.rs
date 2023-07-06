@@ -45,6 +45,7 @@ fn main() {
     if let Some(ref matches) = matches.subcommand_matches("serve") {
     if matches.is_present("host") {
 	adrr = vec![192, 168, 1, 13]; 
+	println!("{:?}", adrr);
 	serve(adrr, matches.value_of("port").expect("Unable to parse argument.").parse().unwrap());
     } else {
 	adrr = vec![0, 0, 0, 0];
