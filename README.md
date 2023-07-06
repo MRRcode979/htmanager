@@ -3,8 +3,8 @@
 htmanager is a high end website project manager written in Rust and is 100% open source forever.
 
 ## IMPORTANT NOTICE:
-htmanager is currently broken and there are not yet plans to fix it in place if you would like to help though than please feel free to!
-__I'm very busy with other things currently, so this project is put on hold. I might come back to it though eventually.__
+htmanager is currently in beta and uses older versions of dependencies like clap. There are no plans in place to update this as I'm currently busy.
+__I'm very busy with other projects currently, so this project is put on hold. I might come back to it though eventually.__
 
 ## What can htmanager do?
 
