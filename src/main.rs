@@ -1,4 +1,3 @@
-#![feature(let_chains)]
 mod build_scss;
 mod cli;
 mod new;
