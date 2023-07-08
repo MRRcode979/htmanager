@@ -30,7 +30,7 @@ redistribute it under certain conditions
     		    Arg::with_name("host")
         	        .long("host")
         		.takes_value(false)
-        		.help("Hosts on LAN at 192.168.1.13:[PORT]")
+        		.help("Hosts on LAN at 192.168.1.186:[PORT]")
 		))
 		.subcommand(
 		App::new("new")
