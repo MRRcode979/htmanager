@@ -3,6 +3,20 @@ use std::convert::Infallible;
 use std::str::FromStr;
 use warp::http::HeaderMap;
 use warp::{filters::BoxedFilter, http::Uri, path::FullPath, redirect, Filter, Reply};
+use std::net::{UdpSocket, SocketAddr};
+
+// use UDP to get ip to serve on
+pub fn get_ip() -> Option<[u8; 4]> {
+    let socket = UdpSocket::bind("0.0.0.0:0").expect("Could not bind socket");
+    socket.connect("1.1.1.1:80").expect("Could not connect to address");
+
+    if let Ok(sa) = socket.local_addr() {
+        if let SocketAddr::V4(sa) = sa {
+            return Some(sa.ip().octets());
+        }
+    }
+    None
+}
 
 #[tokio::main]
 pub async fn serve(addr: &[u8], port: u16) {
